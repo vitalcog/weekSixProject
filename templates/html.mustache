@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<!-- Search For Snips Box -->
+<div id="container1" class="contain">
+
+  <div id="display" class="textbox">{{ #displayCode }} {{body}} {{ /displayCode }}
+  </div>
+
+  <form id="searchSubmit" class="flexFormHorizontal" method="post" action="/findSnip">
+
+    <input list="searchParam" name="searchParam" placeholder="search criteria">
+    <datalist id="searchParam">
+      <option value="title">
+      <option value="language">
+      <option value="tags">
+    </datalist>
+
+    <input type="text" name="searchFor" placeholder="search for">
+
+    <input class="submit" type="submit" name="search" value="find">
+
+  </form>
+
+<!-- Creates the URL Search Results -->
+  <div id="searchResults" class="textbox"> {{ #searchresults }} <a href="/display/{{id}}">{{language}}, {{title}}, {{description}}</a> <br> {{ /searchresults }}
+  </div>
+<!-- End Creates the URL Search Results -->
+
+</div>
+<!-- End Search For Snips Box -->
+
+
+<!-- Submit a Snip Box -->
+<div id="container2" class="contain">
+
+  <form id="flexForm" class="flex" method="post" action="/submitSnip">
+
+    <div class="flexFormHorizontal">
+      <input type="text" name="title" placeholder="what's this snip called?">
+      <input type="text" name="description" placeholder="description">
+    </div>
+
+    <textarea name="body" cols="60" rows="10">
+    </textarea>
+
+    <div class="flexFormHorizontal">
+
+      <input list="languageInput" name="language" placeholder="choose language">
+
+      <datalist id="languageInput">
+        <option value="html">
+        <option value="css">
+        <option value="javascript">
+        <option value="java">
+        <option value="ruby">
+        <option value="python">
+      </datalist>
+
+      <input type="text" name="tags" placeholder="key words">
+    </div>
+
+    <input class="submit" type="submit" name="submit snip" value="submit snip">
+
+  </form>
+  <div id="spacer">
+  </div>
+
+<!-- Login and Register Section  -->
+  <div class="flexFormHorizontal">
+    <form id="formRowBottom" class="flexFormHorizontal" method="post" action="/login>">
+
+      <input class="inputClass2" type="text" name="userName" placeholder="User Name">
+
+      <input class="inputClass2" type="password" name="userPass" placeholder="password">
+
+      <input class="inputClass2" class="submit" type="submit" name="login" value="login">
+
+      <input class="inputClass2" class="submit" type="submit" name="register" value="register new user">
+    </form>
+</div>
+<!-- End Login and Register Section  -->
+
+</div>
+<!-- End Submit a Snip Box -->
+
+
+</body>
+
+</html>
